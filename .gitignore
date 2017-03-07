@@ -1,0 +1,3 @@
+elasticsearch/config/*.yml
+kibana/config/*.yml
+logstash/config/*.conf
