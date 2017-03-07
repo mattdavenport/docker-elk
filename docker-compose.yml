@@ -3,6 +3,8 @@ version: '2'
 services:
   elasticsearch:
     build: elasticsearch/
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -37,6 +39,9 @@ services:
       - docker_elk
     depends_on:
       - elasticsearch
+
+volumes:
+  elasticsearch-data:
 
 networks:
   docker_elk:
