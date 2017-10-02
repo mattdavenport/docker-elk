@@ -40,8 +40,18 @@ services:
     depends_on:
       - elasticsearch
 
+  elastalert:
+    build: elastalert/
+    volumes:
+      - elastalert-logs:/opt/logs
+      - elastalert/config.yaml:/opt/config
+      - elastalert/rules:/opt/rules
+    env_file:
+      - elastalert/elastalert.env
+
 volumes:
   elasticsearch-data:
+  elastalert-logs:
 
 networks:
   docker_elk:
